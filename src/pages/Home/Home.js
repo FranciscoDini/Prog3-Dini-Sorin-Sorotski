@@ -1,5 +1,5 @@
 import {Component} from "react";
-import HomeMovies from "../HomeMovies/HomeMovies"
+import HomeMovies from "../../components/HomeMovies/HomeMovies"
 
 class Home extends Component{
     constructor(props){
