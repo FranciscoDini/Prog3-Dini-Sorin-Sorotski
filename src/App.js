@@ -1,5 +1,5 @@
-import { Switch } from "react"
-import { Route } from "react"
+import { Switch } from "react-router-dom"
+import { Route } from "react-router-dom"
 
 import Header from './components/Header/Header'; 
 import Home from './pages/Home';
@@ -9,7 +9,6 @@ import Detalle from './pages/Detalle';
 import Favoritos from './pages/Favoritos';
 import Search from './pages/Search';
 import Footer from './components/Footer/Footer'; 
-
 
 
 
