@@ -5,7 +5,7 @@ class Movie extends Component{
     constructor(props){
         super(props);
         this.state={
-            MostrarDesc:false
+            MostrarDesc:false,
         }
     }
     handleMostrarDesc(){
