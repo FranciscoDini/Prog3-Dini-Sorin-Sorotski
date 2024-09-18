@@ -23,7 +23,8 @@ constructor(props){
       }
     
     render(){
-        const {peliculas}= this.state;
+        const {peliculas}= this.state; 
+        
         return (
             <div className="Home-movies">
                 {peliculas.map((pelicula,idx)=>(
