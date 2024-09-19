@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Movie from "../Movie/Movie"
+import "./HomeMovies.css"
 
 
 class HomeMovies extends Component{

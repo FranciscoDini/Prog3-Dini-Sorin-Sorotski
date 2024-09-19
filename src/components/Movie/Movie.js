@@ -1,5 +1,6 @@
 import {Component } from "react";
 import {Link} from "react-router-dom";
+import "./Movie.css"
 
 class Movie extends Component{
     constructor(props){
