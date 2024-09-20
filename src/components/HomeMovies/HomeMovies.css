@@ -8,10 +8,10 @@
 
 .Home-movies {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px; /* Reduce el espacio entre elementos para permitir el ajuste */
+  flex-wrap: wrap; 
   justify-content: center;
   padding: 10px;
+  row-gap: 20px;
 }
 
 .movie-single {
@@ -36,10 +36,11 @@
   border: none;
   border-radius: 5px; 
   font-size: 16px; 
-  transition: background-color 0.3s; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .showMore button:hover {
-  background-color: #0056b3; 
-  font-size: larger;
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }

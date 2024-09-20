@@ -1,4 +1,5 @@
 import HomeMovies from "../components/HomeMovies/HomeMovies";
+import "./pages.css"
 
 const Cartelera = () => {
     return (

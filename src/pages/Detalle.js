@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import DetalleCard from "../components/DetalleCard/DetalleCard";
+import "./pages.css"
+
 class Detalle extends Component {
     constructor(props) {
       super(props);

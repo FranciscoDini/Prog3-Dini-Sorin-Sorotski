@@ -1,6 +1,7 @@
 import { Component } from "react";
 import HomeMovies from "../components/HomeMovies/HomeMovies";
 //import {Link} from "react-router-dom"
+import "./pages.css"
 
 class Populares extends Component {
   constructor(props) {
