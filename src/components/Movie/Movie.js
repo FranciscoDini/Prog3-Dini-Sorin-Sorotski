@@ -1,6 +1,7 @@
 import {Component } from "react";
 import {Link} from "react-router-dom";
 import "./Movie.css"
+import FavButton from "../FavButton/FavButton";
 
 class Movie extends Component{
     constructor(props){
@@ -26,6 +27,7 @@ render (){
             <img src={`https://image.tmdb.org/t/p/original${poster_path}`} alt=""/>
 
             <p className="more"><Link to={`/detalle/id/${id}`} className="link">Ir a detalle</Link></p>
+            <FavButton movie= {{id, title}}/>
             <article className={this.state.MostrarDesc ? "show": "hide"}><p>{overview}</p></article>
             <p className="more" onClick={()=>this.handleMostrarDesc()}>{this.state.MostrarDesc ? "Ocultar Descripcion": "Ver descripicion"}</p>
         </div>

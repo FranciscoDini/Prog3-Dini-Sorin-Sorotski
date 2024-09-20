@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Favoritos from '../../pages/Favoritos';
+import { FaHeart, FaRegHeart } from "react-icons/fa"; 
 
-class FavoritesButton extends Component {
+class FavButton extends Component {
   constructor(props) {
     super(props);
     this.state=
@@ -57,9 +58,14 @@ class FavoritesButton extends Component {
             <h4>{this.props.movie.title}</h4>
         </div>
         <button
-            onClick={()=> this.state.esFavorito ? this.addFav(): this.removeFav()}
+            onClick={()=> this.state.esFavorito ? this.removeFav(): this.addFav()}
             >
-            {this.state.esFavorito ? "Agregar a favoritos": "Quitar favoritos"}
+            {this.state.esFavorito ? ( 
+                <FaHeart size={20} color="red" />
+            ) : (
+                <FaRegHeart size={20} /> 
+            )
+            }
         </button>
     </article>
     )
@@ -69,4 +75,4 @@ class FavoritesButton extends Component {
 
 }
 
-export default FavoritesButton
+export default FavButton
