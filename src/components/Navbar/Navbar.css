@@ -14,10 +14,12 @@
     font-size: 18px;
     padding: 10px 15px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease; 
 }
 
 .link:hover {
     background-color: #575757;
     color: #fff;
-    font-size: 25px;
+    transform: scale(1.1); 
 }
