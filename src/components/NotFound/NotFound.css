@@ -1,0 +1,44 @@
+.noEncontrado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  .noEncontrado h1{
+    font-size: 100px;
+    margin: 0;
+    color: #ed0505;
+  }
+  
+  .noEncontrado p {
+    font-size: 20px;
+    margin: 20px 0;
+    color: #666;
+  }
+  
+
+  .noEncontrado a {
+    padding: 10px 20px;
+    border: 2px solid #ed0505;
+    border-radius: 5px;
+    color: #ed0505;
+    text-decoration: none;
+    font-weight: bold;;
+  }
+  
+  .noEncontrado a:hover {
+    background-color: #ed0505;
+    color: #000000;
+    border-style: solid;
+    border-color: #000000;
+  }
+  
+  .noEncontrado img {
+    max-width: 300px; 
+    margin: 20px 0;
+  }
+  

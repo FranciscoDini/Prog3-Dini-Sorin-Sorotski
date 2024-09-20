@@ -9,6 +9,7 @@ import Detalle from './pages/Detalle';
 import Favoritos from './pages/Favoritos';
 import Search from './pages/Search';
 import Footer from './components/Footer/Footer'; 
+import NotFound from "./components/NotFound/NotFound";
 
 
 
@@ -23,6 +24,7 @@ function App() {
    <Route path="/detalle/id/:id" component={Detalle}/>
    <Route path="/favoritos" component={Favoritos}/>
    <Route path="/search" component={Search}/>
+   <Route path=""  component={NotFound}/>
    <Footer/>
    </Switch>
   
