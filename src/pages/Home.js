@@ -21,7 +21,7 @@ class Home extends Component {
     return (
       <div className="home">
         <SearchForm history={this.props.history}/>
-        <h1>Lista de peliculas</h1>
+        <h1>SSD Movies</h1>
 
         <h2>Peliculas más populares</h2>
         <HomeMovies url={popularesUrl} />

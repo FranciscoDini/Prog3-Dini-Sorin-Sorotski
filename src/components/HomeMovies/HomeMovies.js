@@ -51,3 +51,4 @@ class HomeMovies extends Component {
 }
 
 export default HomeMovies;
+
