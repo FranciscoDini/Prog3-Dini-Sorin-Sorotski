@@ -55,7 +55,7 @@ class FavButton extends Component {
     return(
     <article>
         <div>
-            <h4>{this.props.movie.title}</h4>
+            
         </div>
         <button
             onClick={()=> this.state.esFavorito ? this.removeFav(): this.addFav()}

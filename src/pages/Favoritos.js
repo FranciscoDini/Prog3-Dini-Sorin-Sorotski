@@ -1,6 +1,7 @@
 import "./pages.css"
 import React, { Component } from "react";
 import FavButton from '../components/FavButton/FavButton'
+import {Link} from "react-router-dom"
 
 class Favoritos extends Component{
   constructor(props){
@@ -39,14 +40,17 @@ class Favoritos extends Component{
               movies.map(movie=>(
                 <div key={movie.id} className="fav-movie">
                   <h3>{movie.title}</h3>
-                  <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt={movie.title}/> 
+                  <img src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} alt=""/> 
                   <FavButton movie={movie}/>
+                  <p className="more"><Link to={`/detalle/id/${movie.id}`} className="link">Ir a detalle</Link></p>
                   </div> 
                   )) 
                   ) : ( 
                   <p>No hay pelis en favoritos.</p>  
                   )} 
+                 
             </div> 
+
           </div> );
     }
 

@@ -1,5 +1,6 @@
 import "./DetalleCard.css"
 import React,{Component} from "react";
+import FavButton from "../FavButton/FavButton";
 
 class DetalleCard extends Component {
     render() {
@@ -13,6 +14,7 @@ class DetalleCard extends Component {
               <p>Duracion: {movie.runtime} minutos</p>
               <p>Sinopsis: {movie.overview}</p>
               <p>Genero: {movie.genres.map((genre) => genre.name).join("- ")}</p>  
+              <FavButton movie={movie} />
             </div> 
             );
         };
