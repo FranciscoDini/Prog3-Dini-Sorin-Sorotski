@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "./pages.css";
 import SearchForm from "../components/SearchForm/SearchForm";
 
+
 class Home extends Component {
   constructor(props) {
     super(props);

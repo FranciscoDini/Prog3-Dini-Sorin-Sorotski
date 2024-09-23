@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import DetalleCard from "../components/DetalleCard/DetalleCard";
+import Loader from "../components/Loader/Loader.js";
 import "./pages.css"
 
 class Detalle extends Component {
@@ -21,7 +22,7 @@ class Detalle extends Component {
     render() {
         const {movie, loading}= this.state
         if (loading) {
-            return <h3>Cargando...</h3>;
+            return <Loader />;
           }
         //console.log(movie)
         return (

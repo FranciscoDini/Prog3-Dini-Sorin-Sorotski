@@ -91,8 +91,20 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.fav-title{
+    text-align: center;
+}
+
 .fav-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+    justify-content: center; 
+    gap: 20px; 
+  }
+  
+  .sin-fav {
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin: 20px auto; 
+    object-fit: contain;
+  }

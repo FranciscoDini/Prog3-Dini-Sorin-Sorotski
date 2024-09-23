@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Favoritos from '../../pages/Favoritos';
 import { FaHeart, FaRegHeart } from "react-icons/fa"; 
 
 class FavButton extends Component {
