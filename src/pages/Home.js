@@ -2,6 +2,7 @@ import { Component } from "react";
 import HomeMovies from "../components/HomeMovies/HomeMovies";
 import { Link } from "react-router-dom";
 import "./pages.css";
+import SearchForm from "../components/SearchForm/SearchForm";
 
 class Home extends Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class Home extends Component {
       "https://api.themoviedb.org/3/movie/now_playing?api_key=1d1ffcbd926e19d7721125f17a8319dc";
     return (
       <div className="home">
-        <h1>Lista de peliculas</h1>
+        <SearchForm history={this.props.history}/>
+        <h1>SSD Movies</h1>
 
         <h2>Peliculas más populares</h2>
         <HomeMovies url={popularesUrl} />
