@@ -11,8 +11,10 @@ class Populares extends Component {
     };
   }
 
+
+
   render() {
-    const popularesUrl = "https://api.themoviedb.org/3/movie/popular?api_key=1d1ffcbd926e19d7721125f17a8319dc";
+    const popularesUrl = "https://api.themoviedb.org/3/movie/popular?api_key=1d1ffcbd926e19d7721125f17a8319dc&page=";
     return (
       <div className="populares">
         <h1>Películas populares</h1>

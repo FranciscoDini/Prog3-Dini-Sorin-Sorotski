@@ -16,16 +16,16 @@ class Home extends Component {
 
   render() {
     const popularesUrl =
-      "https://api.themoviedb.org/3/movie/popular?api_key=1d1ffcbd926e19d7721125f17a8319dc";
+      "https://api.themoviedb.org/3/movie/popular?api_key=1d1ffcbd926e19d7721125f17a8319dc&page=";
     const carteleraUrl =
-      "https://api.themoviedb.org/3/movie/now_playing?api_key=1d1ffcbd926e19d7721125f17a8319dc";
+      "https://api.themoviedb.org/3/movie/now_playing?api_key=1d1ffcbd926e19d7721125f17a8319dc&page=";
     return (
       <div className="home">
         <SearchForm history={this.props.history}/>
         <h1>SSD Movies</h1>
 
         <h2>Peliculas más populares</h2>
-        <HomeMovies url={popularesUrl} />
+        <HomeMovies url={popularesUrl} home={true} />
         <div className="button-container">
           <Link to="/populares" className="button verTodas">
             Ver todas
@@ -33,7 +33,7 @@ class Home extends Component {
         </div>
 
         <h2>Peliculas cartelera</h2>
-        <HomeMovies url={carteleraUrl} />
+        <HomeMovies url={carteleraUrl}  home={true} />
         <div className="button-container">
           <Link to="/cartelera" className="button verTodas">
             Ver todas

@@ -8,17 +8,21 @@ class HomeMovies extends Component {
     super(props);
     this.state = {
       peliculas: [],
-      peliculasMostradas: 5,
+      peliculasMostradas: 50000,
       isLoading: true,
+      actualPage: 1
     };
   }
 
   componentDidMount() {
+    this.setState({
+      isLoading: true
+    })
     const { url } = this.props;
-    fetch(url)
+    fetch(`${url}${this.state.actualPage}`)
       .then((response) => response.json())
       .then((data) => {
-        this.setState({ peliculas: data.results, isLoading: false });
+        this.setState({ peliculas: data.results, isLoading: false, actualPage: this.state.actualPage + 1 });
       })
       .catch((error) => {
         console.log("El error fue:", error);
@@ -26,9 +30,20 @@ class HomeMovies extends Component {
   }
 
   cargarMasPeliculas = () => {
-    this.setState((mostradas) => ({
-      peliculasMostradas: mostradas.peliculasMostradas + 5,
-    }));
+    this.setState({
+      isLoading: true
+    })
+    const { url } = this.props;
+    fetch(`${url}${this.state.actualPage}`)
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({ 
+          peliculas: this.state.peliculas.concat(data.results), 
+          isLoading: false, actualPage: this.state.actualPage + 1 });
+      })
+      .catch((error) => {
+        console.log("El error fue:", error);
+      });
   };
 
   render() {
@@ -37,21 +52,21 @@ class HomeMovies extends Component {
 
     return (
       <div>
-        {isLoading ? ( // Usa el operador ternario para manejar la condición de carga
+        {isLoading ? ( 
           <Loader />
         ) : (
           <div className="Home-movies">
-            {peliculas.slice(0, peliculasMostradas).map((pelicula, idx) => (
+            {this.state.peliculas.slice(0, peliculasMostradas).map((pelicula, idx) => (
               <Movie key={idx} pelicula={pelicula} />
             ))}
           </div>
         )}
     
-        {mostrarVerMas && peliculasMostradas < peliculas.length && ( // Muestra el botón "Ver más" solo si la condición es verdadera
+       
           <div className="showMore">
             <button onClick={this.cargarMasPeliculas}>Ver más</button>
           </div>
-        )}
+       
       </div>
     );
     
@@ -59,15 +74,3 @@ class HomeMovies extends Component {
 }
 
 export default HomeMovies;
-
-
-/* <div className="Home-movies">
-          {peliculas.slice(0, peliculasMostradas).map((pelicula, idx) => (
-            <Movie key={idx} pelicula={pelicula} />
-          ))}
-        </div>
-        {mostrarVerMas && peliculasMostradas < peliculas.length && (
-        <div className="showMore">
-            <button onClick={this.cargarMasPeliculas}>Ver más</button>
-        </div>
-        )} */

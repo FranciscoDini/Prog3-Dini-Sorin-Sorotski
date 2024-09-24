@@ -1,10 +1,12 @@
+import React from "react";
+import "./Footer.css"
 
-const Footer = () => {
-    return (
-      <>
-        
-      </>
-    );
-  };
-  
-  export default Footer
+function Footer(){
+  return(
+    <footer>
+      <p className="footer">Milena Sorin, Agostina Sorotski y Francisco Dini</p>
+    </footer>
+  )
+}
+
+export default Footer
