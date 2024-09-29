@@ -25,8 +25,8 @@ function App() {
    <Route path="/favoritos" component={Favoritos}/>
    <Route path="/search" component={Search}/>
    <Route path=""  component={NotFound}/>
-   <Footer/>
    </Switch>
+   <Footer/>
   
   </>
 

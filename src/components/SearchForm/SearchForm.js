@@ -1,5 +1,5 @@
 import { Component } from "react"; 
-import {withRouter} from 'react-router-dom';
+import "./SearchForm.css"
 
 class SearchForm extends Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class SearchForm extends Component {
 
   render() {
     return (
-      <div>
+      <div className="filter">
         <form onSubmit={(e) => this.handleCancelSubmit}>
           <input
             onChange={(e) => this.handleFormChange(e)}

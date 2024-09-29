@@ -1,68 +1,92 @@
 import React, { Component } from "react";
 import SimpleGrid from "../components/SimpleGrid/SimpleGrid";
+import Loader from "../components/Loader/Loader";
 import "./pages.css";
 
 class Populares extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      peliculasPopulares: [],
+      peliculas: [],
+      pelisFiltradas: [],
       currentPage: 1,
       isLoading: false,
+      filterValue: "",
     };
   }
 
   componentDidMount() {
-    this.loadPopularMovies();
+    this.fetchMovies(this.state.currentPage);
   }
 
-  loadPopularMovies = () => {
-    const popularesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=1d1ffcbd926e19d7721125f17a8319dc&page=${this.state.currentPage}`;
-
+  fetchMovies(page) {
     this.setState({ isLoading: true });
+    const verMasUrl = `https://api.themoviedb.org/3/movie/popular?api_key=1d1ffcbd926e19d7721125f17a8319dc&page=${page}`;
 
-    fetch(popularesUrl)
+    fetch(verMasUrl)
       .then((response) => response.json())
       .then((data) => {
-        const peliculasActualizadas = [];
-
-        for (let i = 0; i < this.state.peliculasPopulares.length; i++) {
-          peliculasActualizadas.push(this.state.peliculasPopulares[i]);
-        }
-
-        for (let j = 0; j < data.results.length; j++) {
-          peliculasActualizadas.push(data.results[j]);
-        }
-
-        this.setState({
-          peliculasPopulares: peliculasActualizadas,
-          currentPage: this.state.currentPage + 1,
+        this.setState((prevState) => ({
+          peliculas: prevState.peliculas.concat(data.results),
+          pelisFiltradas: prevState.pelisFiltradas.concat(data.results),
           isLoading: false,
-        });
+        }));
       })
-      .catch((error) => {
-        console.error("Error al cargar las películas populares:", error);
+      .catch((err) => {
+        console.log(err);
         this.setState({ isLoading: false });
       });
-  };
+  }
+
+  handleFilter(e) {
+    const userValue = e.target.value;
+    this.setState({
+      filterValue: userValue,
+      pelisFiltradas: this.state.peliculas.filter((movie) =>
+        movie.title.toLowerCase().includes(userValue.toLowerCase())
+      ),
+    });
+  }
+
+  handleResetFilter() {
+    this.setState({
+      filterValue: "",
+      pelisFiltradas: this.state.peliculas,
+    });
+  }
+
+  handleMoreMovies() {
+    const nextPage = this.state.currentPage + 1;
+    this.setState({ currentPage: nextPage }, () => {
+      this.fetchMovies(nextPage);
+    });
+  }
 
   render() {
-    const { peliculasPopulares, isLoading } = this.state;
-
     return (
-      <div className="populares">
-        <h1>Películas populares</h1>
-        <SimpleGrid peliculas={peliculasPopulares} />
-        {peliculasPopulares.length > 0 && (
+      <>
+        <div className="populares">
+          <h1>Películas Populares</h1>
+          {this.state.isLoading && <Loader />}
+          <div className="filter">
+            <input
+              type="text"
+              value={this.state.filterValue}
+              onChange={(e) => this.handleFilter(e)}
+            />
+            <button onClick={() => this.handleResetFilter()}>
+              Reset Filter
+            </button>
+          </div>
+          {this.state.isLoading && <Loader />}
+          <SimpleGrid peliculas={this.state.pelisFiltradas} />
           <button
-            onClick={this.loadPopularMovies}
-            disabled={isLoading}
-            className="ver-mas-button"
-          >
-            {isLoading ? "Cargando..." : "Ver Más"}
+            onClick={() => this.handleMoreMovies()}
+            className="ver-mas-button">
+            Ver Más
           </button>
-        )}
-      </div>
+        </div>
+      </>
     );
   }
 }
