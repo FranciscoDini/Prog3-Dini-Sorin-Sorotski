@@ -24,11 +24,11 @@ class FavButton extends Component {
     const storage=localStorage.getItem("favoritos");
     if (storage !== null){
         const parsedStorage=JSON.parse(storage)
-        parsedStorage.push(this.props.movie.id);
+        parsedStorage.push(Number(this.props.movie.id));
         const stringStorage=JSON.stringify(parsedStorage)
         localStorage.setItem("favoritos",stringStorage)
     }else{
-        const primerFav=[this.props.movie.id]
+        const primerFav=[Number(this.props.movie.id)]
         const stringStorage=JSON.stringify (primerFav)
         localStorage.setItem("favoritos", stringStorage)
 

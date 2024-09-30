@@ -99,6 +99,7 @@ h1 {
     display: flex;
     justify-content: center; 
     gap: 20px; 
+    flex-wrap: wrap;
   }
   
   .sin-fav {
@@ -114,13 +115,14 @@ h1 {
   .cartelera {
     text-align: center;
     padding: 20px;
+
   }
   
   .movies-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centra las películas horizontalmente */
-    gap: 20px; /* Espacio entre las películas */
+    justify-content: center; 
+    gap: 20px; 
     padding: 20px 0;
   }
   
@@ -164,3 +166,49 @@ h1 {
     color: white;
     border-radius: 5px;
 }
+
+@media (max-width: 420px) {
+
+
+  .fav-movie {
+    max-width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+}
+
+.button {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+}
+.button-container {
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.fav-list, .movies-list {
+  flex-direction: column;
+  padding: 10px 0;
+  align-items: center;
+}
+
+.ver-mas-button {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+}
+.filter {
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.filter button {
+  width: 100%;
+}
+}
+
